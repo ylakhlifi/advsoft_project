@@ -1,0 +1,20 @@
+import matplotlib.pyplot as plt
+
+# Load the data
+with open("sample_AAPL.txt", "r") as f:
+    listItems = f.read().splitlines()
+
+appleprices = [float(price) for price in listItems]
+
+# Generate x-axis values
+days = range(1, len(appleprices) + 1)
+
+# Create the line graph
+plt.figure(figsize=(10, 6))
+plt.plot(days, appleprices, label="Stock Price", color="blue")
+plt.title("Apple Stock Price, Nov 2019 to Nov 2020")
+plt.xlabel("Day")
+plt.ylabel("Trading Price")
+plt.grid(True)
+plt.legend()
+plt.show()

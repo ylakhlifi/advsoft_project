@@ -1,0 +1,15 @@
+import numpy as np
+
+# Load the data
+with open("sample_AAPL.txt", "r") as f:
+    listItems = f.read().splitlines()
+
+appleprices = [float(price) for price in listItems]
+
+# Compute the mean and standard deviation
+mean_price = np.mean(appleprices)
+std_dev_price = np.std(appleprices)
+
+# Print the results
+print(f"Mean Price: {mean_price:.2f}")
+print(f"Standard Deviation: {std_dev_price:.2f}")

@@ -1,0 +1,17 @@
+# Load the data
+with open("sample_AAPL.txt", "r") as f:
+    listItems = f.read().splitlines()
+
+appleprices = [float(price) for price in listItems]
+
+# Find the largest possible profit
+current_max_val = float('-inf')
+max_profit_val = float('-inf')
+
+for price in reversed(appleprices):
+    current_max_val = max(current_max_val, price)
+    potential_profit = current_max_val - price
+    max_profit_val = max(potential_profit, max_profit_val)
+
+# Print the result
+print(f"Largest Possible Profit: ${max_profit_val:.2f}")
